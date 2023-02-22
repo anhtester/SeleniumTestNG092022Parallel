@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite Login Test" verbose="1">
+
+    <test name="Login Test on Chrome" parallel="methods" thread-count="10">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="anhtester.com.testcases.LoginTest"/>
+        </classes>
+    </test>
+
+</suite>
