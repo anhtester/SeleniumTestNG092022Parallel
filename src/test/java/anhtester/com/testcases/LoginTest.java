@@ -1,8 +1,10 @@
 package anhtester.com.testcases;
 
 import anhtester.com.common.BaseTest;
-import anhtester.com.drivers.DriverManager;
+import anhtester.com.helpers.PropertiesHelper;
+import anhtester.com.keywords.WebUI;
 import anhtester.com.pages.LoginPage;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
@@ -16,7 +18,10 @@ public class LoginTest extends BaseTest {
         loginPage = new LoginPage();
 
         //Gọi hàm "login" từ LoginPage để dùng
-        loginPage.login("admin@example.com", "123456");
+        loginPage.login(PropertiesHelper.getValue("email"), PropertiesHelper.getValue("password"));
+
+        PropertiesHelper.setFile("src/test/resources/configs/data.properties");
+        PropertiesHelper.setValue("label", WebUI.getTextElement(By.xpath("//span[normalize-space()='Invoice overview']")));
     }
 
     @Test
