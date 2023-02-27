@@ -1,6 +1,5 @@
 package anhtester.com.keywords;
 
-import anhtester.com.drivers.DriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -11,8 +10,7 @@ import org.testng.Assert;
 import java.time.Duration;
 import java.util.List;
 
-//import static anhtester.com.drivers.DriverManager.getDriver;
-import static anhtester.com.drivers.DriverManager.*;
+import static anhtester.com.drivers.DriverManager.getDriver;
 
 public class WebUI {
 
@@ -169,6 +167,16 @@ public class WebUI {
         } catch (TimeoutException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public static boolean verifyElementNotPresent(By by, int second) {
+        try {
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(second), Duration.ofMillis(500));
+            wait.until(ExpectedConditions.presenceOfElementLocated(by));
+            return false;
+        } catch (Exception e) {
+            return true;
         }
     }
 

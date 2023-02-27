@@ -1,6 +1,8 @@
 package anhtester.com.testcases;
 
 import anhtester.com.common.BaseTest;
+import anhtester.com.constant.ConstantData;
+import anhtester.com.helpers.ExcelHelper;
 import anhtester.com.helpers.PropertiesHelper;
 import anhtester.com.keywords.WebUI;
 import anhtester.com.pages.LoginPage;
@@ -10,6 +12,18 @@ import org.testng.annotations.Test;
 public class LoginTest extends BaseTest {
 
     LoginPage loginPage;
+
+//    @AfterMethod
+//    public void getStatusTestCases(ITestResult result) {
+//        if (result.getStatus() == ITestResult.FAILURE && result.getTestName() == "loginTestSuccess2") {
+//            //Screenshot
+//            //Ghi logs
+//            //Set result to Excel
+//            ExcelHelper excelHelper = new ExcelHelper();
+//            excelHelper.setExcelFile("src/test/resources/datatest/CRM.xlsx", "Login");
+//            excelHelper.setCellData("Failed", , "RESULT");
+//        }
+//    }
 
     @Test
     public void loginTestSuccess1() {
@@ -30,8 +44,15 @@ public class LoginTest extends BaseTest {
         //Truyền driver từ BaseTest
         loginPage = new LoginPage();
 
+        ExcelHelper excelHelper = new ExcelHelper();
+        excelHelper.setExcelFile("src/test/resources/datatest/CRM.xlsx", "Login");
+
         //Gọi hàm "login" từ LoginPage để dùng
-        loginPage.login("admin@example.com", "123456");
+        loginPage.login(excelHelper.getCellData(ConstantData.EMAIL, 1), excelHelper.getCellData("PASSWORD", 1));
+
+        //Chạy tới dòng này nghĩa là Passed
+        excelHelper.setCellData("Passed", 1, "RESULT");
+
     }
 
     @Test

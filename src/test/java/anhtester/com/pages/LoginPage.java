@@ -48,7 +48,7 @@ public class LoginPage {
         enterEmail(email);
         enterPassword(password);
         clickOnLoginButton();
-
+        Assert.assertTrue(verifyElementNotPresent(messageErrorEmail, 5), "Login không thành công.");
         return new DashboardPage();
     }
 
