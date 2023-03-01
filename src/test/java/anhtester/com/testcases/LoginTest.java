@@ -2,6 +2,7 @@ package anhtester.com.testcases;
 
 import anhtester.com.common.BaseTest;
 import anhtester.com.constant.ConstantData;
+import anhtester.com.dataproviders.DataLogin;
 import anhtester.com.helpers.ExcelHelper;
 import anhtester.com.helpers.PropertiesHelper;
 import anhtester.com.keywords.WebUI;
@@ -9,29 +10,15 @@ import anhtester.com.pages.LoginPage;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
+import java.util.Hashtable;
+
 public class LoginTest extends BaseTest {
 
     LoginPage loginPage;
 
-//    @AfterMethod
-//    public void getStatusTestCases(ITestResult result) {
-//        if (result.getStatus() == ITestResult.FAILURE && result.getTestName() == "loginTestSuccess2") {
-//            //Screenshot
-//            //Ghi logs
-//            //Set result to Excel
-//            ExcelHelper excelHelper = new ExcelHelper();
-//            excelHelper.setExcelFile("src/test/resources/datatest/CRM.xlsx", "Login");
-//            excelHelper.setCellData("Failed", , "RESULT");
-//        }
-//    }
-
     @Test
-    public void loginTestSuccess1() {
-        //Khởi tạo đối tượng trang LoginPage
-        //Truyền driver từ BaseTest
+    public void loginTest1() {
         loginPage = new LoginPage();
-
-        //Gọi hàm "login" từ LoginPage để dùng
         loginPage.login(PropertiesHelper.getValue("email"), PropertiesHelper.getValue("password"));
 
         PropertiesHelper.setFile("src/test/resources/configs/data.properties");
@@ -39,15 +26,12 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void loginTestSuccess2() {
-        //Khởi tạo đối tượng trang LoginPage
-        //Truyền driver từ BaseTest
+    public void loginTest2() {
         loginPage = new LoginPage();
 
         ExcelHelper excelHelper = new ExcelHelper();
         excelHelper.setExcelFile("src/test/resources/datatest/CRM.xlsx", "Login");
 
-        //Gọi hàm "login" từ LoginPage để dùng
         loginPage.login(excelHelper.getCellData(ConstantData.EMAIL, 1), excelHelper.getCellData("PASSWORD", 1));
 
         //Chạy tới dòng này nghĩa là Passed
@@ -55,53 +39,28 @@ public class LoginTest extends BaseTest {
 
     }
 
-    @Test
-    public void loginTestInvalidEmail1() {
+    @Test(dataProvider = "dataProviderLoginCRM", dataProviderClass = DataLogin.class)
+    public void loginTest3(String email, String password) {
         loginPage = new LoginPage();
-        loginPage.loginInvalidEmail("admin@example.com123", "123456");
+        loginPage.login(email, password);
+    }
+
+    @Test(dataProvider = "data_provider_login_excel", dataProviderClass = DataLogin.class)
+    public void loginTestFromDataProviderReadExcel(String email, String password, String result) {
+        loginPage = new LoginPage();
+        loginPage.login(email, password);
+    }
+
+    @Test(dataProvider = "data_provider_login_excel_custom_row", dataProviderClass = DataLogin.class)
+    public void loginTestFromDataProviderReadExcelCustomRow(Hashtable<String, String> data) {
+        loginPage = new LoginPage();
+        loginPage.login(data.get("EMAIL"), data.get("PASSWORD"));
     }
 
     @Test
-    public void loginTestInvalidEmail2() {
+    public void loginTestInvalidEmail() {
         loginPage = new LoginPage();
-        loginPage.loginInvalidEmail("admin@example.com123", "123456");
+        loginPage.loginInvalidEmail("admin123@example.com", "123456");
     }
-
-    @Test
-    public void loginTestInvalidEmail3() {
-        loginPage = new LoginPage();
-        loginPage.loginInvalidEmail("admin@example.com123", "123456");
-    }
-
-    @Test
-    public void loginTestInvalidEmail4() {
-        loginPage = new LoginPage();
-        loginPage.loginInvalidEmail("admin@example.com123", "123456");
-    }
-
-    @Test
-    public void loginTestInvalidEmail5() {
-        loginPage = new LoginPage();
-        loginPage.loginInvalidEmail("admin@example.com123", "123456");
-    }
-
-    @Test
-    public void loginTestInvalidEmail6() {
-        loginPage = new LoginPage();
-        loginPage.loginInvalidEmail("admin@example.com123", "123456");
-    }
-
-    @Test
-    public void loginTestInvalidEmail7() {
-        loginPage = new LoginPage();
-        loginPage.loginInvalidEmail("admin@example.com123", "123456");
-    }
-
-    @Test
-    public void loginTestInvalidEmail8() {
-        loginPage = new LoginPage();
-        loginPage.loginInvalidEmail("admin@example.com123", "123456");
-    }
-
 
 }
