@@ -1,12 +1,16 @@
 package anhtester.com.common;
 
 import anhtester.com.drivers.DriverManager;
+import anhtester.com.helpers.CaptureHelper;
 import anhtester.com.helpers.PropertiesHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -45,7 +49,12 @@ public class BaseTest {
     private static WebDriver initChromeDriver() {
         System.out.println("Launching Chrome browser...");
         WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+
+        WebDriver driver = new ChromeDriver(options);
+
         driver.manage().window().maximize();
         return driver;
     }
@@ -53,7 +62,11 @@ public class BaseTest {
     private static WebDriver initEdgeDriver() {
         System.out.println("Launching Edge browser...");
         WebDriverManager.edgedriver().setup();
-        WebDriver driver = new EdgeDriver();
+
+        EdgeOptions options = new EdgeOptions();
+        options.addArguments("--remote-allow-origins=*");
+
+        WebDriver driver = new EdgeDriver(options);
         driver.manage().window().maximize();
         return driver;
     }
@@ -67,7 +80,14 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public static void closeDriver() {
+    public static void closeDriver(ITestResult iTestResult) {
+        if (iTestResult.getStatus() == ITestResult.FAILURE) {
+            //Chụp màn hình
+            CaptureHelper.captureScreenshot(iTestResult.getName());
+        }
+
+//        CaptureHelper.stopRecord();
+
         if (DriverManager.getDriver() != null) {
             DriverManager.quit();
         }

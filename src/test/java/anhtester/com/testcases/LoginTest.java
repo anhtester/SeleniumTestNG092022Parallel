@@ -3,11 +3,14 @@ package anhtester.com.testcases;
 import anhtester.com.common.BaseTest;
 import anhtester.com.constant.ConstantData;
 import anhtester.com.dataproviders.DataLogin;
+import anhtester.com.helpers.CaptureHelper;
 import anhtester.com.helpers.ExcelHelper;
 import anhtester.com.helpers.PropertiesHelper;
 import anhtester.com.keywords.WebUI;
 import anhtester.com.pages.LoginPage;
 import org.openqa.selenium.By;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.Hashtable;
@@ -15,6 +18,17 @@ import java.util.Hashtable;
 public class LoginTest extends BaseTest {
 
     LoginPage loginPage;
+
+    @BeforeClass
+    public void setupClass() {
+        CaptureHelper.startRecord("LoginTest");
+    }
+
+    @AfterClass
+    public void tearDownClass() {
+        CaptureHelper.stopRecord();
+    }
+
 
     @Test
     public void loginTest1() {

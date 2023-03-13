@@ -1,12 +1,15 @@
 package anhtester.com.testcases;
 
 import anhtester.com.common.BaseTest;
+import anhtester.com.helpers.CaptureHelper;
+import anhtester.com.pages.DashboardPage;
+import anhtester.com.pages.LoginPage;
 import anhtester.com.pages.customers.AddNewCustomerPage;
 import anhtester.com.pages.customers.CustomerDetailPage;
 import anhtester.com.pages.customers.CustomersPage;
-import anhtester.com.pages.DashboardPage;
-import anhtester.com.pages.LoginPage;
 import org.testng.annotations.Test;
+
+import java.lang.reflect.Method;
 
 public class CustomersTest extends BaseTest {
 
@@ -17,7 +20,9 @@ public class CustomersTest extends BaseTest {
     CustomerDetailPage customerDetailPage;
 
     @Test
-    public void testAddNewCustomer(){
+    public void testAddNewCustomer(Method method) {
+        CaptureHelper.startRecord(method.getName());
+
         loginPage = new LoginPage();
         dashboardPage = loginPage.login("admin@example.com", "123456");
         customersPage = dashboardPage.openCustomerPage();
@@ -39,6 +44,7 @@ public class CustomersTest extends BaseTest {
         customerDetailPage = customersPage.clickOnFirstRowCustomerName();
         //Check Customer Detail
         customerDetailPage.checkCustomerDetail("Theodor");
+
     }
 
 }
