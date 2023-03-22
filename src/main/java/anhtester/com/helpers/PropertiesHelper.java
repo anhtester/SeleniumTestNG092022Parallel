@@ -1,5 +1,7 @@
 package anhtester.com.helpers;
 
+import anhtester.com.utils.LogUtils;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -30,7 +32,9 @@ public class PropertiesHelper {
                 tempProp.load(file);
                 properties.putAll(tempProp);
             }
+            LogUtils.info("Loaded all properties file.");
             return properties;
+
         } catch (IOException ioe) {
             return new Properties();
         }
