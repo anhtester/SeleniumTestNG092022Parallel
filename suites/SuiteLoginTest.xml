@@ -2,8 +2,14 @@
 
 <suite name="Suite Login Test" verbose="1">
 
+    <listeners>
+        <listener class-name="anhtester.com.listeners.TestListener"/>
+        <listener class-name="anhtester.com.listeners.TestListener"/>
+        <listener class-name="anhtester.com.listeners.TestListener"/>
+    </listeners>
+
     <test name="Login Test on Chrome" parallel="methods" thread-count="10">
-        <parameter name="browser" value="chrome"/>
+        <parameter name="browser" value="edge"/>
         <classes>
             <class name="anhtester.com.testcases.LoginTest"/>
         </classes>

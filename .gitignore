@@ -13,3 +13,8 @@ buildNumber.properties
 *.iml
 reports/
 screenshots/
+null/
+*.png
+*.jpg
+*.mp4
+*.avi
