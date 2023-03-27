@@ -20,7 +20,7 @@ public class BaseTest {
     public static void createDriver(@Optional("chrome") String browser) {
         WebDriver driver = setupDriver(browser);
         PropertiesHelper.loadAllFiles();
-        //Set gái trị driver đã đc khởi tạo vào ThreadLocal
+        //Set giá trị driver đã đc khởi tạo vào ThreadLocal
         DriverManager.setDriver(driver);
     }
 
