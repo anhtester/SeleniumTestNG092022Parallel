@@ -26,15 +26,11 @@ public class LoginTest extends BaseTest {
     @Test
     public void testSetDataToExcel() {
         loginPage = new LoginPage();
-
         ExcelHelper excelHelper = new ExcelHelper();
         excelHelper.setExcelFile("src/test/resources/datatest/CRM.xlsx", "Login");
-
         loginPage.login(excelHelper.getCellData(ConstantData.EMAIL, 1), excelHelper.getCellData("PASSWORD", 1));
-
         //Chạy tới dòng này nghĩa là Passed
         excelHelper.setCellData("Passed", 1, "RESULT");
-
     }
 
     @Test(dataProvider = "dataProviderLoginCRM", dataProviderClass = DataLogin.class)

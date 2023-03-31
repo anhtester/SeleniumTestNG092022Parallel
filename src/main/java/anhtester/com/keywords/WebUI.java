@@ -3,6 +3,7 @@ package anhtester.com.keywords;
 import anhtester.com.reports.ExtentTestManager;
 import anhtester.com.utils.LogUtils;
 import com.aventstack.extentreports.Status;
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -46,6 +47,7 @@ public class WebUI {
         return getWebElement(by);
     }
 
+    @Step("Right click on element {0}")
     public static void rightClickElement(By by) {
         waitForElementVisible(by);
         Actions action = new Actions(getDriver());
@@ -54,6 +56,7 @@ public class WebUI {
         ExtentTestManager.logMessage(Status.PASS, "Right click on element " + by);
     }
 
+    @Step("Open URL: {0}")
     public static void openURL(String URL) {
         getDriver().get(URL);
         waitForPageLoaded();
@@ -61,6 +64,7 @@ public class WebUI {
         ExtentTestManager.logMessage(Status.PASS, "Open URL: " + URL);
     }
 
+    @Step("Get current URL")
     public static String getCurrentUrl() {
         waitForPageLoaded();
         LogUtils.info("Get Current URL: " + getDriver().getCurrentUrl());
@@ -68,6 +72,7 @@ public class WebUI {
         return getDriver().getCurrentUrl();
     }
 
+    @Step("Click on element {0}")
     public static void clickElement(By by) {
         waitForElementVisible(by);
         highLightElement(by);
@@ -76,6 +81,7 @@ public class WebUI {
         ExtentTestManager.logMessage(Status.PASS, "Click on element " + by);
     }
 
+    @Step("Set text {1} on element {0}")
     public static void setText(By by, String value) {
         waitForElementVisible(by);
         getWebElement(by).sendKeys(value);
@@ -83,6 +89,7 @@ public class WebUI {
         ExtentTestManager.logMessage(Status.PASS, "Set text " + value + " on element " + by);
     }
 
+    @Step("Get text of element {0}")
     public static String getTextElement(By by) {
         waitForElementVisible(by);
         LogUtils.info("Get text of element " + by);
@@ -92,6 +99,7 @@ public class WebUI {
         return getWebElement(by).getText();
     }
 
+    @Step("Get attribure {1} value of element {0}")
     public static String getAttributeElement(By by, String attributeName) {
         waitForElementVisible(by);
         LogUtils.info("Get attribute value of element " + by);
@@ -113,11 +121,6 @@ public class WebUI {
 
     public static void scrollToElement(By by) {
         //Dùng Actions class
-
-    }
-
-    public static void scrollToElementWithRobot(By by) {
-        //Dùng Robot class
 
     }
 

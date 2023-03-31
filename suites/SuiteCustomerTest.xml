@@ -5,7 +5,7 @@
     <test name="Login Test on Chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="anhtester.com.testcases.LoginTest">
+            <class name="anhtester.com.testcases.CustomersTest">
             </class>
         </classes>
     </test>

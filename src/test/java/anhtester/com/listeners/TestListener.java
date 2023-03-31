@@ -2,6 +2,7 @@ package anhtester.com.listeners;
 
 import anhtester.com.helpers.CaptureHelper;
 import anhtester.com.helpers.PropertiesHelper;
+import anhtester.com.reports.AllureManager;
 import anhtester.com.reports.ExtentReportManager;
 import anhtester.com.reports.ExtentTestManager;
 import anhtester.com.utils.LogUtils;
@@ -61,6 +62,10 @@ public class TestListener implements ITestListener {
         ExtentTestManager.addScreenShot(result.getName());
         ExtentTestManager.logMessage(Status.FAIL, result.getThrowable().toString());
         ExtentTestManager.logMessage(Status.FAIL, result.getName() + " is failed.");
+
+        //Allure Report
+        //AllureManager.saveTextLog(result.getName() + " is failed.");
+        AllureManager.saveScreenshotPNG();
     }
 
     @Override
