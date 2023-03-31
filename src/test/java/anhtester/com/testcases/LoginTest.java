@@ -23,17 +23,8 @@ public class LoginTest extends BaseTest {
 //        CaptureHelper.stopRecord();
 //    }
 
-//    @Test
-//    public void loginTest1() {
-//        loginPage = new LoginPage();
-//        loginPage.login(PropertiesHelper.getValue("email"), PropertiesHelper.getValue("password"));
-//
-//        PropertiesHelper.setFile("src/test/resources/configs/data.properties");
-//        PropertiesHelper.setValue("label", WebUI.getTextElement(By.xpath("//span[normalize-space()='Invoice overview']")));
-//    }
-
     @Test
-    public void loginTest2() {
+    public void testSetDataToExcel() {
         loginPage = new LoginPage();
 
         ExcelHelper excelHelper = new ExcelHelper();
@@ -47,7 +38,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(dataProvider = "dataProviderLoginCRM", dataProviderClass = DataLogin.class)
-    public void loginTest3(String email, String password) {
+    public void testDataProviderLoginCRM(String email, String password) {
         loginPage = new LoginPage();
         loginPage.login(email, password);
     }

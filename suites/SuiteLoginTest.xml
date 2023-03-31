@@ -2,7 +2,7 @@
 
 <suite name="Suite Login Test" verbose="1">
 
-    <test name="Login Test on Chrome" parallel="methods" thread-count="12">
+    <test name="Login Test on Chrome" parallel="methods">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="anhtester.com.testcases.LoginTest">
