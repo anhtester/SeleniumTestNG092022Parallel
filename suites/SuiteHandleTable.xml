@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite Handle Table" verbose="1">
+
+    <test name="Handle Table">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="anhtester.com.testcases.rise.HandleFilterDatatable">
+            </class>
+        </classes>
+    </test>
+
+</suite>
