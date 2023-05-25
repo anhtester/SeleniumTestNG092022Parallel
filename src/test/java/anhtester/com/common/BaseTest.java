@@ -1,5 +1,6 @@
 package anhtester.com.common;
 
+import anhtester.com.constant.ConstantGlobal;
 import anhtester.com.drivers.DriverManager;
 import anhtester.com.helpers.PropertiesHelper;
 import anhtester.com.listeners.TestListener;
@@ -10,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.*;
 
 @Listeners(TestListener.class)
@@ -49,7 +51,10 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
+        if(ConstantGlobal.HEADLESS == true){
+            options.addArguments("--headless=new");
+            options.addArguments("window-size=1800,900");
+        }
 
         WebDriver driver = new ChromeDriver(options);
 
@@ -62,7 +67,10 @@ public class BaseTest {
         WebDriverManager.edgedriver().setup();
 
         EdgeOptions options = new EdgeOptions();
-        options.addArguments("--remote-allow-origins=*");
+        if(ConstantGlobal.HEADLESS == true){
+            options.addArguments("--headless=new");
+            options.addArguments("window-size=1800,900");
+        }
 
         WebDriver driver = new EdgeDriver(options);
         driver.manage().window().maximize();
@@ -73,6 +81,12 @@ public class BaseTest {
         System.out.println("Launching Firefox browser...");
         WebDriverManager.firefoxdriver().setup();
         WebDriver driver = new FirefoxDriver();
+
+        FirefoxOptions options = new FirefoxOptions();
+        if(ConstantGlobal.HEADLESS == true){
+            options.addArguments("--headless=new");
+            options.addArguments("window-size=1800,900");
+        }
         driver.manage().window().maximize();
         return driver;
     }

@@ -1,7 +1,7 @@
 package anhtester.com.testcases;
 
 import anhtester.com.common.BaseTest;
-import anhtester.com.constant.ConstantData;
+import anhtester.com.constant.ConstantGlobal;
 import anhtester.com.dataproviders.DataLogin;
 import anhtester.com.helpers.ExcelHelper;
 import anhtester.com.pages.LoginPage;
@@ -28,7 +28,7 @@ public class LoginTest extends BaseTest {
         loginPage = new LoginPage();
         ExcelHelper excelHelper = new ExcelHelper();
         excelHelper.setExcelFile("src/test/resources/datatest/CRM.xlsx", "Login");
-        loginPage.login(excelHelper.getCellData(ConstantData.EMAIL, 1), excelHelper.getCellData("PASSWORD", 1));
+        loginPage.login(excelHelper.getCellData("EMAIL", 1), excelHelper.getCellData("PASSWORD", 1));
         //Chạy tới dòng này nghĩa là Passed
         excelHelper.setCellData("Passed", 1, "RESULT");
     }
