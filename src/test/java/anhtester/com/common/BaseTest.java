@@ -18,6 +18,7 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({"browser"})
     public static void createDriver(@Optional("chrome") String browser) {
+        System.setProperty("webdriver.http.factory", "jdk-http-client");
         WebDriver driver = setupDriver(browser);
         PropertiesHelper.loadAllFiles();
         //Set giá trị driver đã đc khởi tạo vào ThreadLocal
