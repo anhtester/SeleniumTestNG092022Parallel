@@ -13,16 +13,6 @@ public class LoginTest extends BaseTest {
 
     LoginPage loginPage;
 
-//    @BeforeClass
-//    public void setupClass() {
-//        CaptureHelper.startRecord("LoginTest");
-//    }
-//
-//    @AfterClass
-//    public void tearDownClass() {
-//        CaptureHelper.stopRecord();
-//    }
-
     @Test
     public void testSetDataToExcel() {
         loginPage = new LoginPage();

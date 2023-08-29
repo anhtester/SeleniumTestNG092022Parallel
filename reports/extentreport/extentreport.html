@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Extent Report | Anh Tester</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">May 25, 2023 10:40:54 AM</span></a>
+<a href="#"><span class="badge badge-primary">Aug 30, 2023 12:33:40 AM</span></a>
 </li>
 </ul>
 </div>
@@ -79,9 +79,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">testSetDataToExcel</p>
+            <p class="name">testAddNewCustomer</p>
             <p class="text-sm">
-              <span>10:40:55 AM</span> / <span>00:00:08:791</span>
+              <span>12:33:40 AM</span> / <span>00:00:22:519</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -89,10 +89,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">testSetDataToExcel</h5>
-<span class='badge badge-success'>05.25.2023 10:40:55 AM</span>
-<span class='badge badge-danger'>05.25.2023 10:41:03 AM</span>
-<span class='badge badge-default'>00:00:08:791</span>
+<h5 class="test-status text-pass">testAddNewCustomer</h5>
+<span class='badge badge-success'>08.30.2023 12:33:40 AM</span>
+<span class='badge badge-danger'>08.30.2023 12:34:03 AM</span>
+<span class='badge badge-default'>00:00:22:519</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -105,51 +105,275 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>10:40:56 AM</td>
+        <td>12:33:40 AM</td>
         <td>
           Open URL: https://crm.anhtester.com/admin/authentication
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>10:40:56 AM</td>
+        <td>12:33:40 AM</td>
         <td>
           Get text of element By.xpath: //h1
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>10:40:56 AM</td>
+        <td>12:33:41 AM</td>
         <td>
           ==> Text: Login
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>10:40:56 AM</td>
+        <td>12:33:41 AM</td>
         <td>
           Set text admin@example.com on element By.xpath: //input[@id='email']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>10:40:56 AM</td>
+        <td>12:33:41 AM</td>
         <td>
           Set text 123456 on element By.xpath: //input[@id='password']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>10:40:58 AM</td>
+        <td>12:33:43 AM</td>
         <td>
           Click on element By.xpath: //button[normalize-space()='Login']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>10:41:03 AM</td>
+        <td>12:33:49 AM</td>
         <td>
-          testSetDataToExcel is passed.
+          Click on element By.xpath: //span[normalize-space()='Customers']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:49 AM</td>
+        <td>
+          Get Current URL: https://crm.anhtester.com/admin/clients
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:50 AM</td>
+        <td>
+          Get text of element By.xpath: (//div[@class='panel-body']//h4)[1]
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:33:50 AM</td>
+        <td>
+          ==> Text: Customers Summary
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:51 AM</td>
+        <td>
+          Click on element By.xpath: //a[normalize-space()='New Customer']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:51 AM</td>
+        <td>
+          Set text Keiko on element By.xpath: //input[@id='company']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:51 AM</td>
+        <td>
+          Set text 10 on element By.xpath: //input[@id='vat']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:51 AM</td>
+        <td>
+          Set text 0123456789 on element By.xpath: //input[@id='phonenumber']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:51 AM</td>
+        <td>
+          Set text https://anhtester.com on element By.xpath: //input[@id='website']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:53 AM</td>
+        <td>
+          Click on element By.xpath: //label[@for='groups_in[]']/following-sibling::div
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:54 AM</td>
+        <td>
+          Click on element By.xpath: //label[@for='groups_in[]']/following-sibling::div
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:54 AM</td>
+        <td>
+          Set text Vietnam on element By.xpath: //textarea[@id='address']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:54 AM</td>
+        <td>
+          Set text Can Tho on element By.xpath: //input[@id='city']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:54 AM</td>
+        <td>
+          Set text Can Tho on element By.xpath: //input[@id='state']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:54 AM</td>
+        <td>
+          Set text 92000 on element By.xpath: //input[@id='zip']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:55 AM</td>
+        <td>
+          Click on element By.xpath: //label[@for='country']/following-sibling::div
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:57 AM</td>
+        <td>
+          Click on element By.xpath: //div[@id='profile-save-section']//button[normalize-space()='Save']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:58 AM</td>
+        <td>
+          Click on element By.xpath: //span[normalize-space()='Customers']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:33:59 AM</td>
+        <td>
+          Set text Keiko on element By.xpath: //div[@id='DataTables_Table_0_filter']//input
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:34:02 AM</td>
+        <td>
+          Click on element By.xpath: //table[@id='DataTables_Table_0']//tbody/tr[1]/td[3]/a
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:34:02 AM</td>
+        <td>
+          Get attribute value of element By.xpath: //input[@id='company']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:34:02 AM</td>
+        <td>
+          ==> Attribute value: Keiko
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:34:02 AM</td>
+        <td>
+          Get attribute value of element By.xpath: //input[@id='vat']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:34:02 AM</td>
+        <td>
+          ==> Attribute value: 10
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:34:02 AM</td>
+        <td>
+          Get attribute value of element By.xpath: //input[@id='phonenumber']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:34:02 AM</td>
+        <td>
+          ==> Attribute value: 0123456789
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:34:02 AM</td>
+        <td>
+          Get attribute value of element By.xpath: //input[@id='company']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:34:02 AM</td>
+        <td>
+          ==> Attribute value: Keiko
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:34:02 AM</td>
+        <td>
+          Get attribute value of element By.xpath: //input[@id='vat']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:34:02 AM</td>
+        <td>
+          ==> Attribute value: 10
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:34:02 AM</td>
+        <td>
+          Get attribute value of element By.xpath: //input[@id='phonenumber']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:34:02 AM</td>
+        <td>
+          ==> Attribute value: 0123456789
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:34:03 AM</td>
+        <td>
+          testAddNewCustomer is passed.
         </td>
       </tr>
   </tbody>
@@ -171,13 +395,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>May 25, 2023 10:40:54 AM</h3>
+<h3>Aug 30, 2023 12:33:40 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>May 25, 2023 10:41:03 AM</h3>
+<h3>Aug 30, 2023 12:34:03 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -228,10 +452,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='85%'><b>6</b> events passed</small></div>
+<div><small data-tooltip='79%'><b>31</b> events passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> events failed,
-<b data-tooltip='%'>1</b> others
+<b data-tooltip='%'>8</b> others
 </small>
 </div>
 </div>
@@ -247,7 +471,7 @@
 </div></div>
 <script>
 var timeline = {
-"testSetDataToExcel":8.791
+"testAddNewCustomer":22.519
 };
 </script>
 <div class="row">
@@ -299,11 +523,11 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 6,
+passEvents: 31,
 failEvents: 0,
 warningEvents: 0,
 skipEvents: 0,
-infoEvents: 1
+infoEvents: 8
 };
 </script>        </div>
       </div>

@@ -19,15 +19,15 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters({"browser"})
-    public static void createDriver(@Optional("chrome") String browser) {
-        System.setProperty("webdriver.http.factory", "jdk-http-client");
+    public void createDriver(@Optional("chrome") String browser) {
+        System.setProperty("webdriver.http.factory", "jdk-http-client"); //Fix warning Connection reset
         WebDriver driver = setupDriver(browser);
         PropertiesHelper.loadAllFiles();
         //Set giá trị driver đã đc khởi tạo vào ThreadLocal
         DriverManager.setDriver(driver);
     }
 
-    public static WebDriver setupDriver(String browserName) {
+    public WebDriver setupDriver(String browserName) {
         WebDriver driver;
         switch (browserName.trim().toLowerCase()) {
             case "chrome":
@@ -46,7 +46,7 @@ public class BaseTest {
         return driver;
     }
 
-    private static WebDriver initChromeDriver() {
+    private WebDriver initChromeDriver() {
         System.out.println("Launching Chrome browser...");
         WebDriverManager.chromedriver().setup();
 
@@ -62,7 +62,7 @@ public class BaseTest {
         return driver;
     }
 
-    private static WebDriver initEdgeDriver() {
+    private WebDriver initEdgeDriver() {
         System.out.println("Launching Edge browser...");
         WebDriverManager.edgedriver().setup();
 
@@ -77,7 +77,7 @@ public class BaseTest {
         return driver;
     }
 
-    private static WebDriver initFirefoxDriver() {
+    private WebDriver initFirefoxDriver() {
         System.out.println("Launching Firefox browser...");
         WebDriverManager.firefoxdriver().setup();
         WebDriver driver = new FirefoxDriver();
@@ -92,7 +92,7 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public static void closeDriver() {
+    public void closeDriver() {
         if (DriverManager.getDriver() != null) {
             DriverManager.quit();
         }
