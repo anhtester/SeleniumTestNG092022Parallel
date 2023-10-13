@@ -11,11 +11,9 @@ import java.util.Hashtable;
 
 public class LoginTest extends BaseTest {
 
-    LoginPage loginPage;
-
     @Test
     public void testSetDataToExcel() {
-        loginPage = new LoginPage();
+        LoginPage loginPage = new LoginPage();
         ExcelHelper excelHelper = new ExcelHelper();
         excelHelper.setExcelFile("src/test/resources/datatest/CRM.xlsx", "Login");
         loginPage.login(excelHelper.getCellData("EMAIL", 1), excelHelper.getCellData("PASSWORD", 1));
@@ -25,25 +23,25 @@ public class LoginTest extends BaseTest {
 
     @Test(dataProvider = "dataProviderLoginCRM", dataProviderClass = DataLogin.class)
     public void testDataProviderLoginCRM(String email, String password) {
-        loginPage = new LoginPage();
+        LoginPage loginPage = new LoginPage();
         loginPage.login(email, password);
     }
 
     @Test(dataProvider = "data_provider_login_excel", dataProviderClass = DataLogin.class)
     public void loginTestFromDataProviderReadExcel(String email, String password, String result) {
-        loginPage = new LoginPage();
+        LoginPage loginPage = new LoginPage();
         loginPage.login(email, password);
     }
 
     @Test(dataProvider = "data_provider_login_excel_custom_row", dataProviderClass = DataLogin.class)
     public void loginTestFromDataProviderReadExcelCustomRow(Hashtable<String, String> data) {
-        loginPage = new LoginPage();
+        LoginPage loginPage = new LoginPage();
         loginPage.login(data.get("EMAIL"), data.get("PASSWORD"));
     }
 
     @Test
     public void loginTestInvalidEmail() {
-        loginPage = new LoginPage();
+        LoginPage loginPage = new LoginPage();
         loginPage.loginInvalidEmail("admin123@example.com", "123456");
     }
 

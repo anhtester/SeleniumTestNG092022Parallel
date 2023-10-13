@@ -20,7 +20,6 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({"browser"})
     public void createDriver(@Optional("chrome") String browser) {
-        System.setProperty("webdriver.http.factory", "jdk-http-client"); //Fix warning Connection reset
         WebDriver driver = setupDriver(browser);
         PropertiesHelper.loadAllFiles();
         //Set giá trị driver đã đc khởi tạo vào ThreadLocal
@@ -84,7 +83,7 @@ public class BaseTest {
 
         FirefoxOptions options = new FirefoxOptions();
         if(ConstantGlobal.HEADLESS == true){
-            options.addArguments("--headless=new");
+            options.addArguments("--headless");
             options.addArguments("window-size=1800,900");
         }
         driver.manage().window().maximize();
