@@ -47,7 +47,7 @@ public class BaseTest {
 
     private WebDriver initChromeDriver() {
         System.out.println("Launching Chrome browser...");
-        WebDriverManager.chromedriver().setup();
+        //WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
         if(ConstantGlobal.HEADLESS == true){
@@ -63,7 +63,7 @@ public class BaseTest {
 
     private WebDriver initEdgeDriver() {
         System.out.println("Launching Edge browser...");
-        WebDriverManager.edgedriver().setup();
+        //WebDriverManager.edgedriver().setup();
 
         EdgeOptions options = new EdgeOptions();
         if(ConstantGlobal.HEADLESS == true){
@@ -78,7 +78,8 @@ public class BaseTest {
 
     private WebDriver initFirefoxDriver() {
         System.out.println("Launching Firefox browser...");
-        WebDriverManager.firefoxdriver().setup();
+        //WebDriverManager.firefoxdriver().setup();
+
         WebDriver driver = new FirefoxDriver();
 
         FirefoxOptions options = new FirefoxOptions();
