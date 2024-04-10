@@ -33,7 +33,7 @@ public class CustomersTest extends BaseTest {
         addCustomerPage = customersPage.clickNewCustomerButton();
 
         //Addison, Joseph, Adorno, Theodor, Keiko, Bailey, Philip James
-        String CUSTOMER_NAME = "Keiko";
+        String CUSTOMER_NAME = "Keiko 2";
         addCustomerPage.AddDataNewCustomer(CUSTOMER_NAME);
 
         //Mở lại trang Customer
@@ -43,7 +43,7 @@ public class CustomersTest extends BaseTest {
         //Click vào giá trị Customer Name dòng đầu tiên
         customerDetailPage = customersPage.clickOnFirstRowCustomerName();
         //Check Customer Detail
-        customerDetailPage.checkCustomerDetail("Keiko");
+        customerDetailPage.checkCustomerDetail(CUSTOMER_NAME);
 
     }
 
