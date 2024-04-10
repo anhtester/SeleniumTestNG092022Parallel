@@ -1,7 +1,6 @@
 package anhtester.com.testcases;
 
 import anhtester.com.dataproviders.DataLogin;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
@@ -12,7 +11,6 @@ public class TestDataProvider {
     public void testLoginCRM(String email, String password) {
         System.out.println(email + " - " + password);
 
-        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.quit();
     }

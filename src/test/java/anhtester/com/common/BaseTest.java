@@ -4,7 +4,6 @@ import anhtester.com.constant.ConstantGlobal;
 import anhtester.com.drivers.DriverManager;
 import anhtester.com.helpers.PropertiesHelper;
 import anhtester.com.listeners.TestListener;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
